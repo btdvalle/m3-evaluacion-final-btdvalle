@@ -12,7 +12,7 @@ const formatData = results => {
       image: character.image,
       gender: character.gender,
       species: character.species,
-      location: character.location,
+      origin: character.origin.name,
       status: character.status,
       episodes: character.episode
     };

@@ -4,12 +4,12 @@ const Filters = props => {
     props.action(ev.currentTarget.value);
   };
   return (
-    <div>
+    <form className="form">
       <label>
         ¿Por quién preguntas?
         <input type="text" onChange={handleChange} />
       </label>
-    </div>
+    </form>
   );
 };
 

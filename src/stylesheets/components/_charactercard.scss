@@ -1,0 +1,20 @@
+.character {
+  text-decoration: none;
+  color: white;
+  &_card {
+    background: #00b7c6;
+    width: 200px;
+    margin: 20px;
+    &-img {
+      width: 200px;
+    }
+    &-description {
+      text-decoration: none;
+      padding: 10px;
+      .name {
+        margin: 0;
+        font-size: 20px;
+      }
+    }
+  }
+}
