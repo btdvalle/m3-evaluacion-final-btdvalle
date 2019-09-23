@@ -5,10 +5,8 @@ const Filters = props => {
   };
   return (
     <form className="form">
-      <label>
-        ¿Por quién preguntas?
-        <input type="text" onChange={handleChange} />
-      </label>
+      <label className="form_label">¿Por quién preguntas?</label>
+      <input className="form_input" type="text" placeholder="Ej: Antenna Morty" onChange={handleChange} />
     </form>
   );
 };

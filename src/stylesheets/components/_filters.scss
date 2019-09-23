@@ -1,3 +1,26 @@
 .form {
+  display: flex;
+  flex-flow: column nowrap;
   margin: 15px;
+  &_label {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  &_input {
+    text-align: center;
+    border: solid #00b7c6 2px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+  }
+  @media (min-width: 768px) {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    &_label {
+      margin-bottom: 0;
+    }
+  }
 }

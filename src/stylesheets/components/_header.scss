@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: center;
+  &_img {
+    box-sizing: border-box;
+    margin: 15px;
+    width: 90%;
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
+}
