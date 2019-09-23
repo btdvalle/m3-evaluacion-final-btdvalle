@@ -1,19 +1,39 @@
 import React from "react";
 import "../stylesheets/App.scss";
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import logo from "../images/logo.png";
+import getDataFromApi from "../services/Api";
+import CharacterList from "./CharacterList";
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      characters: []
+      // filterInputValue:""
+    };
+  }
+
+  componentDidMount() {
+    getDataFromApi().then(characters => this.setState({ characters }));
+  }
+
+  // filterByName(id){
+
+  // }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        <CharacterList
+          characters={this.state.characters}
+          // action={this.filterByName}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
