@@ -17,7 +17,6 @@ class CharacterDetail extends React.Component {
   // };
 
   renderIcons(character) {
-    console.log(character);
     let status;
     let species;
 
@@ -29,15 +28,20 @@ class CharacterDetail extends React.Component {
       status = "❔";
     }
     character.species.toLowerCase() === "human" ? (species = "👋🏼") : (species = "🖖🏼");
-
-    // return ;
-    // {
-    //   species;
-    // }
     return (
       <h2 className="character_detail-icons--h2">
         {status} {species}
       </h2>
+    );
+  }
+
+  loader() {
+    return (
+      <div className="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     );
   }
 
@@ -46,8 +50,9 @@ class CharacterDetail extends React.Component {
       return (
         <div className="detailpage">
           <h3>Loading...</h3>
+          {this.loader()}
           <Link to="/" className="goback">
-            {"&larr; Go back"}
+            {"< Go back"}
           </Link>
         </div>
       );
