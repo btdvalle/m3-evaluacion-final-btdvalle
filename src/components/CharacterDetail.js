@@ -9,12 +9,7 @@ class CharacterDetail extends React.Component {
       open: false
     };
     this.renderIcons = this.renderIcons.bind(this);
-    // this.renderEpisodes = this.renderEpisodes.bind(this);
   }
-
-  // renderEpisodes = episodes => {
-  //   return episodes.map(episode => <li>{episode}</li>);
-  // };
 
   renderIcons(character) {
     let status;
@@ -83,7 +78,6 @@ class CharacterDetail extends React.Component {
                 </li>
                 <li className="character_detail-description-li">
                   <strong>Episodes: </strong> {episodes.length}
-                  {/* <ul className={`character_detail-description--episodes${this.state.open ? "open" : ""}`}>{this.renderEpisodes(episodes)}</ul> */}
                 </li>
               </ul>
             </div>
