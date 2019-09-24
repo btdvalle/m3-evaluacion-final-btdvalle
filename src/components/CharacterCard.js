@@ -10,7 +10,9 @@ const CharacterCard = props => {
         <img className="character_card-img" src={image} alt={name} title={name} />
         <div className="character_card-description">
           <h2 className="name">{name}</h2>
-          <h3 className="species">{species}</h3>
+          <h3 className="species">
+            {species} {species.toLowerCase() === "human" ? "👋🏼" : "🖖🏼"}
+          </h3>
         </div>
       </div>
     </Link>

@@ -8,12 +8,38 @@ class CharacterDetail extends React.Component {
     this.state = {
       open: false
     };
+    this.renderIcons = this.renderIcons.bind(this);
     // this.renderEpisodes = this.renderEpisodes.bind(this);
   }
 
   // renderEpisodes = episodes => {
   //   return episodes.map(episode => <li>{episode}</li>);
   // };
+
+  renderIcons(character) {
+    console.log(character);
+    let status;
+    let species;
+
+    if (character.status.toLowerCase() === "alive") {
+      status = "♡";
+    } else if (character.status.toLowerCase() === "dead") {
+      status = "💀";
+    } else {
+      status = "❔";
+    }
+    character.species.toLowerCase() === "human" ? (species = "👋🏼") : (species = "🖖🏼");
+
+    // return ;
+    // {
+    //   species;
+    // }
+    return (
+      <h2 className="character_detail-icons--h2">
+        {status} {species}
+      </h2>
+    );
+  }
 
   render() {
     if (!this.props.character) {
@@ -33,6 +59,7 @@ class CharacterDetail extends React.Component {
             {"< Go back"}
           </Link>
           <div className="character_detail" id={id}>
+            <div className="character_detail-icons">{this.renderIcons(this.props.character)}</div>
             <img className="character_detail-img" src={image} alt={name} title={name} />
             <div className="character_detail-description">
               <h3 className="name">{name}</h3>
