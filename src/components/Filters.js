@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 const Filters = props => {
   const handleChange = ev => {
     props.actionInput(ev.currentTarget.value);
@@ -25,6 +27,11 @@ const Filters = props => {
       </div>
     </form>
   );
+};
+
+Filters.propTypes = {
+  actionInput: PropTypes.func,
+  actionCheckbox: PropTypes.func
 };
 
 export default Filters;

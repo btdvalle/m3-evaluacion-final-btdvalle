@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
 
 const renderList = props => {
@@ -22,6 +23,10 @@ const CharacterList = props => {
   } else {
     return <ul className="characterlist">{renderList(props)}</ul>;
   }
+};
+
+CharacterList.propTypes = {
+  characters: PropTypes.object
 };
 
 export default CharacterList;

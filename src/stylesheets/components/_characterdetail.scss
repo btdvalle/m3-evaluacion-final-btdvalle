@@ -18,9 +18,13 @@
 
   &-img {
     width: 300px;
+    height: 300px;
   }
   &-description-li {
     line-height: 1.5rem;
+  }
+  &-description--episodes {
+    // display: none;
   }
   @media (min-width: 768px) {
     flex-flow: row;
