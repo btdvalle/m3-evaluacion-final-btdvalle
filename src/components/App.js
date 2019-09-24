@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "../stylesheets/App.scss";
 import getDataFromApi from "../services/Api";
+import getEpisodesNames from "../services/ApiEpisodes";
 import Header from "./Header";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
@@ -21,7 +22,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    getDataFromApi().then(characters => this.setState({ characters }));
+    getDataFromApi().then(characters => {
+      this.setState({ characters });
+      getEpisodesNames(characters.map(character => character.episodes));
+    });
   }
 
   filterByName(inputValue) {
@@ -69,7 +73,5 @@ class App extends React.Component {
     );
   }
 }
-
-
 
 export default App;

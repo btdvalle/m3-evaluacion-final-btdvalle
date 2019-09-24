@@ -14,12 +14,8 @@ const renderList = props => {
 };
 
 const CharacterList = props => {
-  if (!props.characters) {
-    return (
-      <div className="detailpage">
-        <h3>Loading...</h3>
-      </div>
-    );
+  if (props.characters.length === 0) {
+    return <h2>No se encuentran resultados</h2>;
   } else {
     return <ul className="characterlist">{renderList(props)}</ul>;
   }
