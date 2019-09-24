@@ -13,7 +13,15 @@ const renderList = props => {
 };
 
 const CharacterList = props => {
-  return <ul className="characterlist">{renderList(props)}</ul>;
+  if (!props.characters) {
+    return (
+      <div className="detailpage">
+        <h3>Loading...</h3>
+      </div>
+    );
+  } else {
+    return <ul className="characterlist">{renderList(props)}</ul>;
+  }
 };
 
 export default CharacterList;

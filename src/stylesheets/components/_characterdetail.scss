@@ -3,22 +3,28 @@
   flex-flow: column;
   align-items: center;
   .goback {
-    text-decoration: none;
+    // text-decoration: none;
     color: white;
   }
 }
 .character_detail {
   display: flex;
   flex-flow: column nowrap;
-  margin-bottom: 50px;
-
+  width: 300px;
   padding: 15px;
+  margin: 15px;
+  margin-bottom: 50px;
   background: #00b7c6;
+
   &-img {
     width: 300px;
   }
+  &-description-li {
+    line-height: 1.5rem;
+  }
   @media (min-width: 768px) {
     flex-flow: row;
+    width: 600px;
     &-description {
       display: flex;
       flex-flow: column nowrap;

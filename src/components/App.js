@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "../stylesheets/App.scss";
-import logo from "../images/logo.png";
 import getDataFromApi from "../services/Api";
+import Header from "./Header";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
@@ -17,21 +17,31 @@ class App extends React.Component {
     this.filterByName = this.filterByName.bind(this);
     this.renderHome = this.renderHome.bind(this);
     this.renderCharacter = this.renderCharacter.bind(this);
+    this.filterBySpecie = this.filterBySpecie.bind(this);
   }
 
   componentDidMount() {
     getDataFromApi().then(characters => this.setState({ characters }));
   }
 
-  filterByName(value) {
-    this.setState({ filterValue: value });
+  filterByName(inputValue) {
+    this.setState({ filterValue: inputValue });
+  }
+
+  filterBySpecie(radioValue) {
+    const characters = this.state.characters.map(character => {
+      character.checked = true;
+      return { ...character, checked: character.species.toLowerCase() === radioValue.toLowerCase() ? character.checked : !character.checked };
+    });
+    this.setState({ characters });
   }
 
   renderHome() {
-    const filteredCharacters = this.state.characters.filter(character => character.name.toLowerCase().includes(this.state.filterValue.toLowerCase()));
+    const filteredCharacters = this.state.characters.filter(character => character.name.toLowerCase().includes(this.state.filterValue.toLowerCase())).filter(character => character.checked === true);
+
     return (
       <main className="main">
-        <Filters action={this.filterByName} />
+        <Filters actionInput={this.filterByName} actionCheckbox={this.filterBySpecie} />
         <CharacterList characters={filteredCharacters} />
       </main>
     );
@@ -48,21 +58,15 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.characters === []) {
-      return <p>"Loading"</p>;
-    } else {
-      return (
-        <div className="App">
-          <header className="header">
-            <img src={logo} className="header_img" alt="Rick&Morty" />
-          </header>
-          <Switch>
-            <Route exact path="/" render={this.renderHome} />
-            <Route path="/character/:id" render={this.renderCharacter} />
-          </Switch>
-        </div>
-      );
-    }
+    return (
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/" render={this.renderHome} />
+          <Route path="/character/:id" render={this.renderCharacter} />
+        </Switch>
+      </div>
+    );
   }
 }
 

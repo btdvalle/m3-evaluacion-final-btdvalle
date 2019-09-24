@@ -1,12 +1,12 @@
-.form {
+.form_search {
   display: flex;
   flex-flow: column nowrap;
-  margin: 15px;
-  &_label {
+  margin: 30px;
+  &-label {
     text-align: center;
     margin-bottom: 15px;
   }
-  &_input {
+  &-input {
     text-align: center;
     border: solid #00b7c6 2px;
     background: black;
@@ -19,8 +19,19 @@
     justify-content: space-between;
     align-items: center;
     width: 450px;
-    &_label {
+    &-label {
       margin-bottom: 0;
     }
+  }
+}
+
+.form_checkbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 15px;
+
+  &-label {
+    padding: 5px;
   }
 }

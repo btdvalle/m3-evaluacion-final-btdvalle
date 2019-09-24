@@ -14,7 +14,8 @@ const formatData = results => {
       species: character.species,
       origin: character.origin.name,
       status: character.status,
-      episodes: character.episode
+      episodes: character.episode,
+      checked: true
     };
   });
 };
