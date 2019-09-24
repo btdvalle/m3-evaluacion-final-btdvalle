@@ -21,7 +21,7 @@ class CharacterDetail extends React.Component {
         <div className="detailpage">
           <h3>Loading...</h3>
           <Link to="/" className="goback">
-            {"< Go back"}
+            {"&larr; Go back"}
           </Link>
         </div>
       );

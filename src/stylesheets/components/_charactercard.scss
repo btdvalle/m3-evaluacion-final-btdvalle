@@ -9,7 +9,11 @@
       width: 200px;
     }
     &-description {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
       text-decoration: none;
+      height: 120px;
       padding: 10px;
       .name {
         margin: 0;

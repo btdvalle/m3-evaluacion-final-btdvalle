@@ -6,7 +6,7 @@ const renderList = props => {
   const { characters } = props;
   return characters.map(character => {
     return (
-      <li key={character.id}>
+      <li className="characterlist_li" key={character.id}>
         <CharacterCard character={character} />
       </li>
     );
@@ -26,7 +26,7 @@ const CharacterList = props => {
 };
 
 CharacterList.propTypes = {
-  characters: PropTypes.object
+  characters: PropTypes.array
 };
 
 export default CharacterList;
